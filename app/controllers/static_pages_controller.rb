@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
   def home
     if logged_in?
       @micropost = current_user.microposts.build
+      @likes = Like.where(micropost_id: params[:micropost_id])
       if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
         @q = current_user.feed.ransack(microposts_search_params)
         @feed_items = @q.result.paginate(page: params[:page])

@@ -18,13 +18,16 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @likes = Like.where(micropost_id: params[:micropost_id])
     redirect_to root_url and return unless @user.activated?
     if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
       @q = @user.microposts.ransack(microposts_search_params)
       @microposts = @q.result.paginate(page: params[:page])
+      @likes = Like.where(micropost_id: params[:micropost_id])
     else
       @q = Micropost.none.ransack
       @microposts = @user.microposts.paginate(page: params[:page])
+      @likes = Like.where(micropost_id: params[:micropost_id])
     end
     @url = user_path(@user)
   end
