@@ -14,7 +14,7 @@
   <div class="col-md-8">
     <div class="row">
       <div class="col-md-4">
-        <h3>Micropost Feed</h3>
+        <h3>投稿一覧</h3>
       </div>
       <div class="search_form">
         <%= render 'shared/microposts_search_form' %>
@@ -25,17 +25,14 @@
 </div>
 <% else %>
   <div class="center jumbotron">
-    <h1>Welcome to the Sample App</h1>
+    <h1>My favorite Book</h1>
 
     <h2>
-      This is the home page for the
-      <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-      sample application.
+      <a>お気に入りの本をみんなと共有しよう！</a>
     </h2>
 
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-primary" %>
+    
   </div>
 
-  <%= link_to image_tag("rails.png", alt: "Rails logo"),
-              'http://rubyonrails.org/' %>
 <% end %>
