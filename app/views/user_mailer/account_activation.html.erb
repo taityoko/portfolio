@@ -3,7 +3,8 @@
 
 <p>
 MY FAVORITE BOOK へようこそ！まだアカウント作成は完了しておりません。
-URLをクリックし、メールアドレスを認証してください。:</p>
+URLをクリックし、メールアドレスを認証してください。:
+</p>
 
 <%= link_to "Activate", edit_account_activation_url(@user.activation_token,
                                                     email: @user.email) %>
